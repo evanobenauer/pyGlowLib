@@ -38,6 +38,9 @@ class Vector3:
     def __str__(self):
         return "<" + str(self.x) + "," + str(self.y) + "," + str(self.z) + ">"
 
+    def __eq__(self, vector):
+        return self.x == vector.x and self.y == vector.y and self.z == vector.z
+
 
 class Vector2(Vector3):
     def __init__(self, x, y):
