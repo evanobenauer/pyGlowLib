@@ -1,8 +1,8 @@
-class ColorRGBA:
+class Color:
     red = None
     green = None
     blue = None
-    alpha = 255
+    alpha = None
 
     def __init__(self, red, green, blue, alpha):
         self.red = red
@@ -17,7 +17,7 @@ class ColorRGBA:
         return self.red == color.red and self.green == color.green and self.blue == color.blue and self.alpha == color.alpha
 
 
-class ColorRGB(ColorRGBA):
+class ColorRGB(Color):
 
     def __init__(self, red, green, blue):
-        ColorRGBA.__init__(self, red, green, blue, 255)
+        super().__init__(red, green, blue, 255)
