@@ -2,14 +2,13 @@
 # from their list wherever the post method is invoked
 class Event:
     eventActions: list['EventAction']
-    args: list
+    args: tuple
 
     def __init__(self):
         self.eventActions = []
-        self.args = []
+        self.args = ()
 
-    def post(self, args: list = None):
-        if args is None: args = []
+    def post(self, *args):
         self.args = args
 
         try:
@@ -29,7 +28,7 @@ class Event:
 class EventAction:
     event: Event
     subscribed: bool
-    action = None
+    action = None #Lambda Statement
 
     def __init__(self, event: Event, action):
         self.event = event

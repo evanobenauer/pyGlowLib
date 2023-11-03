@@ -17,11 +17,17 @@ class Angle:
         else:
             self.angleRadians = angle * 180 / math.pi
 
-    def getDegrees(self):
+    def getDegrees(self) -> float:
         return self.angleRadians * 180 / math.pi
 
-    def getRadians(self):
+    def getRadians(self) -> float:
         return self.angleRadians
 
-    def getUnitVector(self):
+    def getUnitVector(self) -> Vector:
         return Vector(math.cos(self.getRadians()), math.sin(self.getRadians()))
+
+    def __eq__(self, other: 'Angle') -> bool:
+        return other.angleRadians == self.angleRadians
+
+    def __str__(self):
+        pass

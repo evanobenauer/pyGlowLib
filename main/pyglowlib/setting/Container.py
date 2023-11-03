@@ -7,7 +7,7 @@ class Container:
     def __init__(self, value):
         self.value = value
 
-    def __eq__(self, other):
+    def __eq__(self, other: 'Container') -> bool:
         return self.value == other.value
 
 
