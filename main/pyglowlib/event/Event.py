@@ -1,5 +1,6 @@
+# Events are classes that can have multiple actions subscribed to them at a time. Events will execute all actions
+# from their list wherever the post method is invoked
 class Event:
-
     eventActions: list['EventAction']
     args: list
 
@@ -7,16 +8,15 @@ class Event:
         self.eventActions = []
         self.args = []
 
-
-    def post(self, args: list):
+    def post(self, args: list = None):
+        if args is None: args = []
         self.args = args
 
         try:
             for action in self.eventActions:
                 action.action()
-        except:
+        except BaseException:
             pass
-
 
     def subscribeAction(self, action: 'EventAction'):
         self.eventActions.append(action)
@@ -25,8 +25,8 @@ class Event:
         self.eventActions.remove(action)
 
 
+# Event actions are classes that can be subscribed to an event and activated when posted
 class EventAction:
-
     event: Event
     subscribed: bool
     action = None
@@ -36,10 +36,8 @@ class EventAction:
         self.action = action
         self.subscribed = False
 
-
     def subscribe(self):
         self.event.subscribeAction(self)
-
 
     def unsubscribe(self):
         self.event.unsubscribeAction(self)

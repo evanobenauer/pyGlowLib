@@ -1,10 +1,10 @@
 class Color:
-    red = None
-    green = None
-    blue = None
-    alpha = None
+    red: int
+    green: int
+    blue: int
+    alpha: int
 
-    def __init__(self, red, green, blue, alpha):
+    def __init__(self, red: int, green: int, blue: int, alpha: int = 255):
         self.red = red
         self.green = green
         self.blue = blue
@@ -15,9 +15,3 @@ class Color:
 
     def __eq__(self, color):
         return self.red == color.red and self.green == color.green and self.blue == color.blue and self.alpha == color.alpha
-
-
-class ColorRGB(Color):
-
-    def __init__(self, red, green, blue):
-        super().__init__(red, green, blue, 255)

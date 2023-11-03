@@ -1,3 +1,6 @@
+from pyglowlib.setting.SettingManager import SettingManager
+
+
 class Container:
     value = None
 
@@ -9,9 +12,14 @@ class Container:
 
 
 class Setting(Container):
-    def __init__(self, value):
-        super().__init__(value)
 
+    settingManager: SettingManager
+
+    def __init__(self, value, manager: SettingManager = None):
+        super().__init__(value)
+        self.settingManager = manager
+
+    # TODO: Add
     def save(self):
         pass
 
