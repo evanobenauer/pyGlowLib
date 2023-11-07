@@ -64,3 +64,54 @@ class Vector:
 
     def __eq__(self, vector: 'Vector') -> bool:
         return self.x == vector.x and self.y == vector.y and self.z == vector.z
+
+
+class Angle:
+    angleRadians: float
+    isDegrees: bool
+
+    def __init__(self, angleRadians: float, isDegrees: bool = False):
+        self.angleRadians = angleRadians
+        self.isDegrees = isDegrees
+
+    def set(self, angle: float, isDegrees: bool = False):
+        if not isDegrees:
+            self.angleRadians = angle
+        else:
+            self.angleRadians = angle * 180 / math.pi
+
+    def add(self, angle: 'Angle') -> 'Angle':
+        self.angleRadians += angle.getRadians()
+        return self
+
+    def subtract(self, angle: 'Angle') -> 'Angle':
+        self.angleRadians -= angle.getRadians()
+        return self
+
+    def multiply(self, val: float) -> 'Angle':
+        self.angleRadians *= val
+        return self
+
+    def getAdded(self, angle: 'Angle') -> 'Angle':
+        return Angle(self.getRadians() + angle.getRadians())
+
+    def getSubtracted(self, angle: 'Angle') -> 'Angle':
+        return Angle(self.getRadians() - angle.getRadians())
+
+    def getMultiplied(self, val: float) -> 'Angle':
+        return Angle(self.getRadians() * val)
+
+    def getDegrees(self) -> float:
+        return self.angleRadians * 180 / math.pi
+
+    def getRadians(self) -> float:
+        return self.angleRadians
+
+    def getUnitVector(self) -> Vector:
+        return Vector(math.cos(self.getRadians()), math.sin(self.getRadians()))
+
+    def __eq__(self, other: 'Angle') -> bool:
+        return other.angleRadians == self.angleRadians
+
+    def __str__(self) -> str:
+        return "[Angle: " + str(self.getRadians()) + "]"
