@@ -1,11 +1,8 @@
 class DoOnce:
-    shouldRun: bool
-
-    action = None  # Lambda Statement
 
     def __init__(self, action=None):
-        self.shouldRun = True
-        self.action = action
+        self.shouldRun: bool = True
+        self.action = action  # Lambda Statement
 
     def run(self):
         if self.shouldRun:

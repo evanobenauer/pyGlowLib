@@ -1,14 +1,10 @@
 class Color:
-    red: int
-    green: int
-    blue: int
-    alpha: int
 
     def __init__(self, red: int, green: int, blue: int, alpha: int = 255):
-        self.red = red
-        self.green = green
-        self.blue = blue
-        self.alpha = alpha
+        self.red: int = red
+        self.green: int = green
+        self.blue: int = blue
+        self.alpha: int = alpha
 
     def __str__(self) -> str:
         return "[" + str(self.red) + ", " + str(self.green) + ", " + str(self.blue) + ", " + str(self.alpha) + "]"

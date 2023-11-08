@@ -1,5 +1,4 @@
 class Container:
-    value = None
 
     def __init__(self, value):
         self.value = value
@@ -9,18 +8,16 @@ class Container:
 
 
 class Setting(Container):
-    settingManager: 'SettingManager'
 
     def __init__(self, value, manager: 'SettingManager' = None):
         super().__init__(value)
-        self.settingManager = manager
+        self.settingManager: 'SettingManager' = manager
 
-    # TODO: Add
     def save(self):
-        pass
+        self.settingManager.saveAll()
 
     def load(self):
-        pass
+        self.settingManager.loadAll()
 
 
 class SettingManager:

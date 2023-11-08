@@ -2,14 +2,11 @@ import math
 
 
 class Vector:
-    x: float = None
-    y: float = None
-    z: float = None
 
-    def __init__(self, x: float, y: float, z: float = 0):
-        self.x = x
-        self.y = y
-        self.z = z
+    def __init__(self, x: float = 0, y: float = 0, z: float = 0):
+        self.x: float = x
+        self.y: float = y
+        self.z: float = z
 
     def add(self, vector: 'Vector') -> 'Vector':
         self.x += vector.x
@@ -67,12 +64,10 @@ class Vector:
 
 
 class Angle:
-    angleRadians: float
-    isDegrees: bool
 
     def __init__(self, angleRadians: float, isDegrees: bool = False):
-        self.angleRadians = angleRadians
-        self.isDegrees = isDegrees
+        self.angleRadians: float = angleRadians
+        self.isDegrees: bool = isDegrees
 
     def set(self, angle: float, isDegrees: bool = False):
         if not isDegrees:

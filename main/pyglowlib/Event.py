@@ -1,12 +1,10 @@
 # Events are classes that can have multiple actions subscribed to them at a time. Events will execute all actions
 # from their list wherever the post method is invoked
 class Event:
-    eventActions: list['EventAction']
-    args: tuple
 
     def __init__(self):
-        self.eventActions = []
-        self.args = ()
+        self.eventActions: list['EventAction'] = []
+        self.args: tuple = ()
 
     def post(self, *args):
         self.args = args
@@ -26,14 +24,11 @@ class Event:
 
 # Event actions are classes that can be subscribed to an event and activated when posted
 class EventAction:
-    event: Event
-    subscribed: bool
-    action = None #Lambda Statement
 
     def __init__(self, event: Event, action):
-        self.event = event
-        self.action = action
-        self.subscribed = False
+        self.event: Event = event
+        self.action = action  # Lambda Statement
+        self.subscribed: bool = False
 
     def subscribe(self):
         self.event.subscribeAction(self)
