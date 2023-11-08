@@ -7,7 +7,7 @@ class Color:
         self.alpha: int = alpha
 
     def __str__(self) -> str:
-        return "[" + str(self.red) + ", " + str(self.green) + ", " + str(self.blue) + ", " + str(self.alpha) + "]"
+        return f"[{self.red}, {self.green}, {self.blue}, {self.alpha}]"
 
     def __eq__(self, color: 'Color') -> bool:
         return self.red == color.red and self.green == color.green and self.blue == color.blue and self.alpha == color.alpha

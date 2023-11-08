@@ -57,7 +57,7 @@ class Vector:
         return self.getMultiplied(1 / self.getMagnitude())
 
     def __str__(self) -> str:
-        return "<" + str(self.x) + "," + str(self.y) + "," + str(self.z) + ">"
+        return f"<{self.x}, {self.y}, {self.z}>"
 
     def __eq__(self, vector: 'Vector') -> bool:
         return self.x == vector.x and self.y == vector.y and self.z == vector.z
@@ -109,4 +109,4 @@ class Angle:
         return other.angleRadians == self.angleRadians
 
     def __str__(self) -> str:
-        return "[Angle: " + str(self.getRadians()) + "]"
+        return f"[Angle: {self.getRadians()}]"
