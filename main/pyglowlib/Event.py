@@ -16,7 +16,8 @@ class Event:
             pass
 
     def subscribeAction(self, action: 'EventAction'):
-        self.eventActions.append(action)
+        if not self.eventActions.__contains__(action):
+            self.eventActions.append(action)
 
     def unsubscribeAction(self, action: 'EventAction'):
         self.eventActions.remove(action)

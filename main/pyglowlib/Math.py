@@ -20,6 +20,12 @@ class Vector:
         self.z -= vector.z
         return self
 
+    def scale(self, vector: 'Vector'):
+        self.x *= vector.x
+        self.y *= vector.y
+        self.z *= vector.z
+        return self
+
     def multipy(self, mul: float) -> 'Vector':
         self.x *= mul
         self.y *= mul
@@ -37,6 +43,9 @@ class Vector:
 
     def getSubtracted(self, vector: 'Vector') -> 'Vector':
         return Vector(self.x - vector.x, self.y - vector.y, self.z - vector.z)
+
+    def getScaled(self, vector: 'Vector') -> 'Vector':
+        return Vector(self.x * vector.x, self.y * vector.y, self.z * vector.z)
 
     def getMultiplied(self, val: float) -> 'Vector':
         return Vector(self.x * val, self.y * val, self.z * val)
